@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from escola.models import Aluno, Curso
-from serializers import AlunoSerializer, CursoSerializer
+from escola.serializers import AlunoSerializer, CursoSerializer
 
 '''
 A estrutura Rest permite incluir uma abstração para lidar com "VIEWSET",
@@ -14,5 +14,5 @@ class AlunosViewSet(viewsets.ModelViewSet):
     
 class CursosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os cursos"""
-    queryset = Curso.obects.all()
+    queryset = Curso.objects.all()
     serializer_class = CursoSerializer
