@@ -1,6 +1,6 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from escola.models import Aluno, Curso, Matricula
-from escola.serializers import AlunoSerializer, CursoSerializer, MatriculaSerializer
+from escola.serializers import AlunoSerializer, CursoSerializer, MatriculaSerializer, ListaMatriculasAlunoSerializer
 
 '''
 A estrutura Rest permite incluir uma abstração para lidar com "VIEWSET",
@@ -21,3 +21,11 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     """Listando todas as matrículas"""
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
+    
+class ListaMatriculasAluno(generics.ListAPIView):
+    """Listando as matriculas de um aluno ou aluna"""
+    # Função para filter no banco de dados o aluno que foi passado na requisição.
+    def get_queryset(self):
+        queryset = Matricula.objects.filter(aluno_id=self.kwargs['pk'])
+        return queryset
+    serializer_class = ListaMatriculasAlunoSerializer

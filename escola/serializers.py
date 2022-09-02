@@ -22,3 +22,12 @@ class MatriculaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Matricula
         exclude = [] # Forma utilizada para escluir algum campo para não ser exibido na requisição, a lista vazia trás todos os campos, caso contrário é só relacionar os campos que não deseja exibir
+       
+class ListaMatriculasAlunoSerializer(serializers.ModelSerializer):
+    curso = serializers.ReadOnlyField(source='curso.descricao') # comando que possibilita pegar a descrição do curso ao invés do ID
+    periodo = serializers.SerializerMethodField()
+    class Meta:
+        model = Matricula
+        fields = ['curso', 'periodo']
+    def get_periodo(self, obj):
+        return obj.get_periodo_display() # comando que possibilita exibir o pedíodo da mesma forma que é exibido no Admin.
