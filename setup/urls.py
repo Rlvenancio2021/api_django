@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from escola.views import AlunosViewSet, CursosViewSet, MatriculaViewSet, ListaMatriculasAluno
+from escola.views import AlunosViewSet, CursosViewSet, MatriculaViewSet, ListaMatriculasAluno, ListaAlunosMatriculados
 from rest_framework import routers
 
 
@@ -27,5 +27,6 @@ router.register('matriculas', MatriculaViewSet, basename='Matriculas')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('aluno/<int:pk>/matriculas/', ListaMatriculasAluno.as_view()) # Pegar o ID ao aluno passado na requisição = aluno/<int:pk>/matriculas; Trazer a lista de matriculas como do tipo View executando uma função.
+    path('aluno/<int:pk>/matriculas/', ListaMatriculasAluno.as_view()), # Pegar o ID ao aluno passado na requisição = aluno/<int:pk>/matriculas; Trazer a lista de matriculas como do tipo View executando uma função.
+    path('curso/<int:pk>/matriculados/', ListaAlunosMatriculados.as_view())
 ]

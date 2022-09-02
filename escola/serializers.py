@@ -31,3 +31,9 @@ class ListaMatriculasAlunoSerializer(serializers.ModelSerializer):
         fields = ['curso', 'periodo']
     def get_periodo(self, obj):
         return obj.get_periodo_display() # comando que possibilita exibir o pedíodo da mesma forma que é exibido no Admin.
+    
+class ListaAlunosMatriculadosSerializer(serializers.ModelSerializer):
+    aluno_nome = serializers.ReadOnlyField(source='aluno.nome')
+    class Meta:
+        model = Matricula
+        fields = ['aluno_nome']
