@@ -1,6 +1,27 @@
 # Criando uma API REST
 
-## Configuração inicial
+## API Referente para gestão de dados de uma escola com dados de Alunos, Cursos e Matriculas realizadas
+
+### Tecnologias que estou me dedicando atualmente
+<div style="display: inline_block"><br/>
+  <img aling="center" alt="Python3" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img aling="center" alt="Django3" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white">
+  <img aling="center" alt="MySQL" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/>
+</div>
+
+### Objetivo do Projeto
+
+Adminstrar Banco de Dados de uma escola com controle dos dados de Alunos e Cursos, por meio da página Admin do Framework Django, possibilitando a uso do CRUD de uma forma mais amigavel ao usuário.
+
+Foi adicionado uma camada de proteção de autenticação básica para que os usuários tenham acesso ao conteúdo da API.
+
+
+### Saída de Dados
+
+Os dados de saída são no formato JSON e o banco de dados utilizado é o MySQL
+
+
+### Configuração inicial
 
 1. Criar um ambiente virtual para melhor controle dos pacotes e bibliotecas a serem instaladas para o projeto.
 Comandos MAC ou Linux
